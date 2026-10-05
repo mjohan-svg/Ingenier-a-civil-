@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Portafolio profesional de Johanielis Martinez Soto, estudiante de Ingeniería Civil.">
+
+    <title>Johanielis Martinez Soto | Ingeniería Civil</title>
+
+    <style>
+        /* =========================
+           ESTILOS GENERALES
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #ffffff;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        h1, h2, h3 {
+            line-height: 1.2;
+        }
+
+        /* =========================
+           ENCABEZADO
+        ========================= */
+
+        header {
+            background: #0f172a;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            padding: 1rem 1.5rem;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           PRESENTACIÓN
+        ========================= */
+
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+
+            background: linear-gradient(
+                135deg,
+                #0f172a,
+                #1e3a5f
+            );
+
+            color: white;
+        }
+
+        .hero-content {
+            width: min(1100px, 100%);
+            margin: auto;
+            padding: 5rem 1.5rem;
+        }
+
+        .etiqueta {
+            color: #93c5fd;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text {
+            max-width: 680px;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .boton {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 0.85rem 1.4rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .boton:hover,
+        .boton:focus {
+            background: #1d4ed8;
+        }
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        .seccion {
+            max-width: 1100px;
+            margin: auto;
+            padding: 5rem 1.5rem;
+        }
+
+        .seccion h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #0f172a;
+        }
+
+        .gris {
+            max-width: none;
+            background: #f8fafc;
+        }
+
+        .gris > h2,
+        .gris > .competencias {
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* =========================
+           PERFIL
+        ========================= */
+
+        .perfil {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .perfil p {
+            margin-bottom: 1rem;
+        }
+
+        .perfil-datos {
+            border-left: 4px solid #2563eb;
+            padding-left: 1.5rem;
+        }
+
+        /* =========================
+           COMPETENCIAS
+        ========================= */
+
+        .competencias {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+
+        .tarjeta {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .tarjeta h3 {
+            margin-bottom: 0.8rem;
+            color: #1d4ed8;
+        }
+
+        /* =========================
+           PROYECTOS
+        ========================= */
+
+        .proyectos {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .proyecto {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            gap: 1.5rem;
+
+            padding: 1.5rem;
+
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+        }
+
+        .proyecto h3 {
+            margin-bottom: 0.7rem;
+            color: #0f172a;
+        }
+
+        .proyecto p {
+            margin-bottom: 1rem;
+        }
+
+        .proyecto-icono {
+            width: 60px;
+            height: 60px;
+
+            display: grid;
+            place-items: center;
+
+            background: #dbeafe;
+            color: #1d4ed8;
+
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.3rem 0.6rem;
+            margin-right: 0.4rem;
+
+            background: #eff6ff;
+            color: #1d4ed8;
+
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* =========================
+           CONTACTO
+        ========================= */
+
+        .contacto {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 5rem 1.5rem;
+        }
+
+        .contacto h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .datos-contacto {
+            margin-top: 2rem;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .datos-contacto a {
+            color: #bfdbfe;
+            text-decoration: none;
+        }
+
+        .datos-contacto a:hover,
+        .datos-contacto a:focus {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           PIE DE PÁGINA
+        ========================= */
+
+        footer {
+            background: #020617;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        footer p {
+            margin: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        /* =========================
+           ACCESIBILIDAD
+        ========================= */
+
+        :focus-visible {
+            outline: 3px solid #60a5fa;
+            outline-offset: 3px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .competencias {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .perfil {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .competencias {
+                grid-template-columns: 1fr;
+            }
+
+            .proyecto {
+                grid-template-columns: 1fr;
+            }
+
+            .datos-contacto {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero {
+                min-height: 65vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+
+    <header>
+        <nav aria-label="Navegación principal">
+
+            <a href="#" class="logo">
+                Johanielis Martinez Soto
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#perfil">Perfil</a></li>
+                <li><a href="#competencias">Competencias</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- PRESENTACIÓN -->
+
+        <section class="hero" aria-labelledby="titulo-principal">
+
+            <div class="hero-content">
+
+                <p class="etiqueta">
+                    ESTUDIANTE GRADUANDO
+                </p>
+
+                <h1 id="titulo-principal">
+                    Ingeniería Civil
+                </h1>
+
+                <p class="hero-text">
+                    Estudiante de Ingeniería Civil con interés en el diseño,
+                    la construcción y la planificación de proyectos.
+                    Mi objetivo es desarrollar estructuras seguras,
+                    funcionales y de calidad.
+                </p>
+
+                <a href="#proyectos" class="boton">
+                    Ver mis proyectos
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- PERFIL PROFESIONAL -->
+
+        <section id="perfil" class="seccion"
+                 aria-labelledby="titulo-perfil">
+
+            <h2 id="titulo-perfil">
+                Perfil profesional
+            </h2>
+
+            <div class="perfil">
+
+                <div>
+
+                    <p>
+                        Soy estudiante graduando de Ingeniería Civil,
+                        interesado en participar en el diseño y desarrollo
+                        de proyectos de construcción.
+                    </p>
+
+                    <p>
+                        Me interesa aplicar los conocimientos adquiridos
+                        en matemáticas, dibujo técnico y herramientas
+                        digitales para desarrollar soluciones prácticas
+                        y funcionales.
+                    </p>
+
+                    <p>
+                        Me considero una persona responsable, organizada
+                        y comprometida con seguir desarrollando mis
+                        conocimientos dentro del campo de la ingeniería.
+                    </p>
+
+                </div>
+
+                <div class="perfil-datos">
+
+                    <p>
+                        <strong>Carrera:</strong><br>
+                        Ingeniería Civil
+                    </p>
+
+                    <p>
+                        <strong>Universidad:</strong><br>
+                        Instituto Tecnológico de Puerto Rico - Recinto de Guayama
+                    </p>
+
+                    <p>
+                        <strong>Áreas de interés:</strong><br>
+                        Construcción y diseño
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COMPETENCIAS -->
+
+        <section id="competencias"
+                 class="seccion gris"
+                 aria-labelledby="titulo-competencias">
+
+            <h2 id="titulo-competencias">
+                Competencias técnicas
+            </h2>
+
+            <div class="competencias">
+
+                <article class="tarjeta">
+
+                    <h3>
+                        Dibujo técnico
+                    </h3>
+
+                    <p>
+                        Elaboración e interpretación de planos y dibujos
+                        técnicos utilizando medidas, escalas y diferentes
+                        tipos de líneas.
+                    </p>
+
+                </article>
+
+
+                <article class="tarjeta">
+
+                    <h3>
+                        AutoCAD
+                    </h3>
+
+                    <p>
+                        Uso de herramientas de dibujo asistido por
+                        computadora para crear y modificar planos
+                        técnicos.
+                    </p>
+
+                </article>
+
+
+                <article class="tarjeta">
+
+                    <h3>
+                        Matemáticas
+                    </h3>
+
+                    <p>
+                        Aplicación de cálculos y conversiones para resolver
+                        problemas relacionados con proyectos de ingeniería.
+                    </p>
+
+                </article>
+
+
+                <article class="tarjeta">
+
+                    <h3>
+                        Planificación
+                    </h3>
+
+                    <p>
+                        Organización de tareas, medidas y recursos para
+                        apoyar el desarrollo de proyectos de construcción.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROYECTOS DESTACADOS -->
+
+        <section id="proyectos"
+                 class="seccion"
+                 aria-labelledby="titulo-proyectos">
+
+            <h2 id="titulo-proyectos">
+                Proyectos destacados
+            </h2>
+
+            <div class="proyectos">
+
+
+                <article class="proyecto">
+
+                    <div class="proyecto-icono"
+                         aria-hidden="true">
+                        01
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Diseño de vivienda
+                        </h3>
+
+                        <p>
+                            Desarrollo académico de una propuesta de
+                            vivienda considerando la distribución de
+                            espacios, dimensiones y representación
+                            mediante planos.
+                        </p>
+
+                        <span class="tag">
+                            Diseño
+                        </span>
+
+                        <span class="tag">
+                            Planos
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="proyecto">
+
+                    <div class="proyecto-icono"
+                         aria-hidden="true">
+                        02
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Dibujo arquitectónico
+                        </h3>
+
+                        <p>
+                            Elaboración de dibujos técnicos aplicando
+                            escalas, dimensiones, líneas y diferentes
+                            elementos utilizados en la representación
+                            de proyectos.
+                        </p>
+
+                        <span class="tag">
+                            AutoCAD
+                        </span>
+
+                        <span class="tag">
+                            Dibujo técnico
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="proyecto">
+
+                    <div class="proyecto-icono"
+                         aria-hidden="true">
+                        03
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Proyecto de construcción
+                        </h3>
+
+                        <p>
+                            Propuesta académica enfocada en la
+                            planificación de una estructura funcional,
+                            considerando organización, medidas y
+                            aspectos básicos de construcción.
+                        </p>
+
+                        <span class="tag">
+                            Construcción
+                        </span>
+
+                        <span class="tag">
+                            Planificación
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACTO -->
+
+        <section id="contacto"
+                 class="contacto"
+                 aria-labelledby="titulo-contacto">
+
+            <h2 id="titulo-contacto">
+                Contacto
+            </h2>
+
+            <p>
+                Para conocer más sobre mi formación y mis proyectos,
+                puedes comunicarte conmigo.
+            </p>
+
+            <div class="datos-contacto">
+
+                <!-- Cambia estos datos por los tuyos -->
+
+                <a href="mailto:tuemail@example.com">
+                    ✉ mjohanielis@gmail.com
+                </a>
+
+                <a href="tel:+17870000000">
+                    ☎ (787) 929-8769
+                </a>
+
+                <span>
+                    📍 Puerto Rico
+                </span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 Johanielis Martinez Soto.
+            Todos los derechos reservados.
+        </p>
+
+        <p>
+            Estudiante de Ingeniería Civil
+        </p>
+
+    </footer>
+
+</body>
+</html>
